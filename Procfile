@@ -1,1 +1,1 @@
- web: gunicorn CrudProject.wsgi
+ web: gunicorn crudproject.wsgi
