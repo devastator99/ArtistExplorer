@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-rqatkuo92h6&ac$xu22071h&=ft_#6cal!llu&$o+e_okj)*y^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['artistexplorercrud.up.railway.app']
 
 
 # Application definition
@@ -136,4 +136,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')Run the command: py manage.py collectstatic to collect static files.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
