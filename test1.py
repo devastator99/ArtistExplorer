@@ -36,7 +36,7 @@ def get_artist_details(artist_name):
     else:
         return None
 
-# Example usage
+
 artist_name = 'Achilles'
 details = get_artist_details(artist_name)
 if details:

@@ -33,7 +33,7 @@ def add(request):
             # Get the first artist from the search results
             artist = results['artists']['items'][0]
             
-            followers = artist['followers']['total']
+            followers = artist['followers']['total']    
             followers_count = "{:,.2f}M".format(followers / 1000000)
             popularity = artist['popularity']
             image_url = artist['images'][0]['url'] if artist['images'] else None
