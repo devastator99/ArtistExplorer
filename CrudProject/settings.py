@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-rqatkuo92h6&ac$xu22071h&=ft_#6cal!llu&$o+e_okj)*y^
 DEBUG = True
 
 ALLOWED_HOSTS = ['web-production-c4d9.up.railway.app',
-                 'artistexplorercrud.up.railway.app'
+                 'artistexplorercrud.up.railway.app',
+                 '127.0.0.1'
                  ]
 
 

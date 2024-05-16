@@ -37,13 +37,14 @@ def get_artist_details(artist_name):
         return None
 
 # Example usage
-artist_name = 'The Killers'
+artist_name = 'Achilles'
 details = get_artist_details(artist_name)
 if details:
     print(f"Details for {artist_name}:")
     print(f"Followers Count: {details['followers_count']}")
     print(f"Popularity: {details['popularity']}")
     print(f"Image URL: {details['image_url']}")
-    print(f"Genres: {', '.join(details['genres'])}")
+    # print(f"Genres: {', '.join(details['genres'])}")
+    print(genres)
 else:
     print("Artist not found.")

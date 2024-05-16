@@ -12,9 +12,15 @@ def index(request):
 
 
 
+from django.http import JsonResponse
+from spotipy.oauth2 import SpotifyClientCredentials
+import spotipy
+# Import Artists model assuming it's defined elsewhere in your project
+from.models import Artists
+
 def add(request):
     if request.method == 'POST':
-        Name = request.POST.get('Name')
+        name = request.POST.get('Name')
         
         client_id = '6d18dc785abf4280becf23f23a79012c'
         client_secret = '243b83e815054096875c5cc32b1f0f26'
@@ -22,11 +28,10 @@ def add(request):
         sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
         # Search for the artist
-        results = sp.search(q=f'artist:{Name}', type='artist')
+        results = sp.search(q=f'artist:{name}', type='artist')
         if results['artists']['total'] > 0:
             # Get the first artist from the search results
             artist = results['artists']['items'][0]
-            
             
             followers = artist['followers']['total']
             followers_count = "{:,.2f}M".format(followers / 1000000)
@@ -34,14 +39,24 @@ def add(request):
             image_url = artist['images'][0]['url'] if artist['images'] else None
             genres = artist['genres'][:3] if artist['genres'] else None
             
+            # Initialize Description and Popularity variables
+            description = ""
+            popularity_value = popularity
+            
+            # Append genres to Description
+            try:
+                for genre in genres:
+                    description += genre + ", "
+            except TypeError:
+                print("Error: genres is not iterable.")
+            
             # Create and save the artist instance
             Artist = Artists(
-                Name=Name,
-                Description=','.join(genres), 
-                Popularity=popularity,
+                Name=name,
+                Description=description.rstrip(", "),  # Remove trailing comma and space
+                Popularity=popularity_value,
                 Image=image_url,
-                Followers = followers_count
-                # Genres=','.join(genres)  # Join genres into a string
+                Followers=followers_count
             )
             Artist.save()
             
@@ -51,7 +66,7 @@ def add(request):
     else:
         return render(request, 'index.html')  # Render the form if the request method is not POST
 
-    
+
 def edit(request):
     Artist = Artists.objects.all()
     
