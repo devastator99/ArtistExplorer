@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['web-production-c4d9.up.railway.app',
                  'artistexplorercrud.up.railway.app',
-                 '127.0.0.1'
+                 '127.0.0.1',
+                 '.vercel.app',
+                 '.now.sh',
                  ]
 
 
