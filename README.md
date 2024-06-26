@@ -1,6 +1,6 @@
 # ArtistExplorer
 
-ArtistExplorer is a web application made with Django, HTML, CSS, and JavaScript. It provides a beautiful design with Vanilla JavaScript and leverages the Spotipy API to fetch detailed information about artists.
+ArtistExplorer is a simple web application made with Django, HTML, CSS, and JavaScript. It provides a beautiful design with Vanilla JavaScript and leverages the Spotipy API to fetch detailed information about artists.
 
 ## Features
 - **Artist Details:** Fetches artist information including popularity score, genres, total fan following, and images.
